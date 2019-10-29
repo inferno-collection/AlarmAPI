@@ -1,5 +1,5 @@
 --[[
-dh_alarms, FiveM Resource
+Inferno Collection AlarmAPI, FiveM Resource
 Copyright (C) 2019 Daniel A. Hawton <daniel@hawton.org>
 
 This program is free software: you can redistribute it and/or modify
@@ -16,8 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-RegisterNetEvent("dh/alarms:activate")
-AddEventHandler("dh/alarms:activate", function(id, type, volume)
+RegisterNetEvent("inferno/AlarmAPI:activate")
+AddEventHandler("inferno/AlarmAPI:activate", function(id, type, volume)
   SendNUIMessage({
     type = "ActivateAlarm",
     alarm = id,
@@ -26,16 +26,16 @@ AddEventHandler("dh/alarms:activate", function(id, type, volume)
   })
 end)
 
-RegisterNetEvent("dh/alarms:stop")
-AddEventHandler("dh/alarms:stop", function(id)
+RegisterNetEvent("inferno/AlarmAPI:stop")
+AddEventHandler("inferno/AlarmAPI:stop", function(id)
   SendNUIMessage({
     type = "StopAlarm",
     alarm = id
   })
 end)
 
-RegisterNetEvent("dh/alarms:volume")
-AddEventHandler("dh/alarms:volume", function(id, volume)
+RegisterNetEvent("inferno/AlarmAPI:volume")
+AddEventHandler("inferno/AlarmAPI:volume", function(id, volume)
   if volume > 1 then
     volume = volume / 100
   end
@@ -44,30 +44,6 @@ AddEventHandler("dh/alarms:volume", function(id, volume)
     type = "SetAlarmVolume",
     alarm = id,
     volume = volume
-  })
-end)
-
-RegisterCommand("activatealarm", function(source, args, user)
-  SendNUIMessage({
-    type = "ActivateAlarm",
-    alarm = args[1],
-    alarmtype = args[2],
-    volume = args[3]
-  })
-end)
-
-RegisterCommand("stopalarm", function(source, args, user)
-  SendNUIMessage({
-    type = "StopAlarm",
-    alarm = args[1]
-  })
-end)
-
-RegisterCommand("setalarmvolume", function(source, args, user)
-  SendNUIMessage({
-    type = "SetAlarmVolume",
-    alarm = args[1],
-    volume = args[2]
   })
 end)
 
@@ -80,8 +56,8 @@ AddEventHandler("playerSpawned", function()
   end
 end)
 
-RegisterNetEvent("dh/alarms:addAlarmType")
-AddEventHandler("dh/alarms:addAlarmType", function(type, path)
+RegisterNetEvent("inferno/AlarmAPI:addAlarmType")
+AddEventHandler("inferno/AlarmAPI:addAlarmType", function(type, path)
   Config.Alarms[type] = path
   SendNUIMessage({
     type = "init",

@@ -1,4 +1,5 @@
-# dh_alarms
+![channels4_banner|690x114](https://i.ibb.co/CHMD8y6/channels4-banner.jpg) 
+# Inferno Collection: AlarmAPI
 
 This resource gives an alarm interface, it is an API not a standalone resource.
 
@@ -18,23 +19,23 @@ For relative paths, it should be relative to ui/index.html not the config file o
 
 ## Usage
 
-To start an alarm, trigger client event "dh/alarms:activate". Arguments are "id", "type", "volume".
+To start an alarm, trigger client event "inferno/AlarmAPI:activate". Arguments are "id", "type", "volume".
 ID is how you will reference that specific alarm instance later on, type is the alarm name you specified in the config, volume is the volume you want the alarm to sound at and will default at 100%. It is written as a percentage in numerical form, so if you want it set to 50%, pass 0.5.
 
-To change the volume of an alarm, trigger "dh/alarms:volume" with arguments "id", and "volume".
+To change the volume of an alarm, trigger "inferno/AlarmAPI:volume" with arguments "id", and "volume".
 ID should be the same as the one passed with activate, and volume is the same format as activation.
 
-To stop an alarm, trigger "dh/alarms:stop" with the argument of "id".
+To stop an alarm, trigger "inferno/AlarmAPI:stop" with the argument of "id".
 
-To add an alarm type during run time from other scripts, trigger "dh/alarms:addAlarmType" with arguments of "type" and "path".
+To add an alarm type during run time from other scripts, trigger "inferno/AlarmAPI:addAlarmType" with arguments of "type" and "path".
 
 ***Example***
 
 ```
-TriggerEvent("dh/alarms:activate", "PinkCageRoom2", "industrial", 0.5)
-TriggerEvent("dh/alarms:volume", "PinkCageRoom2", 1.0)
-TriggerEvent("dh/alarms:stop", "PinkCageRoom2")
-TriggerEvent("dh/alarms:addAlarmType", "safealarm", "https://some.url.example/safealarm.mp3")
+TriggerEvent("inferno/AlarmAPI:activate", "PinkCageRoom2", "industrial", 0.5)
+TriggerEvent("inferno/AlarmAPI:volume", "PinkCageRoom2", 1.0)
+TriggerEvent("inferno/AlarmAPI:stop", "PinkCageRoom2")
+TriggerEvent("inferno/AlarmAPI:addAlarmType", "safealarm", "https://some.url.example/safealarm.mp3")
 ```
 
 ---
@@ -42,3 +43,10 @@ TriggerEvent("dh/alarms:addAlarmType", "safealarm", "https://some.url.example/sa
 ## Shameless Plug
 
 Check out the [Inferno Collection](https://inferno-collection.com) for some quality FiveM addons.
+
+### The Inferno Collection Team
+* @ChristopherM
+* @Scott_UK 
+* @FrozenN00b
+
+Interested in keeping up-to-date with what we are working on? [Check out our roadmap](https://inferno-collection.com/roadmap)
